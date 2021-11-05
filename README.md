@@ -1,2 +1,2 @@
-# kaavamaaraysohjeet
+# kaavamaaraysoppaat
 Kaavamääräysten soveltamisohjeiden erillissivusto
