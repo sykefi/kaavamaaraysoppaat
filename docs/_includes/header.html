@@ -58,37 +58,76 @@
 {% endif %}
   <script src="https://polyfill.io/v3/polyfill.min.js?features=String.prototype.padStart%2Cfetch" crossorigin="anonymous"></script>
   <script>
-    /*
-    try to limit the commits to the submodule commit: 
-    */ 
-    function setModifiedDate() {
-      if ("{{ gh_repo }}" !== "" && "{{ filePath }}" !== "" && document.getElementById('last-modified')) {
-        fetch("https://api.github.com/repos/{{ site.repository }}/commits?path={{ current_module.basepath }}/{{pageModuleVersion}}")
+
+    function updateModifiedField(commit) {                   
+      if (commit.commit) {
+        var url = commit['html_url'];
+        $("#last-modified").append("<span>Viimeksi muutettu <a href=\"" + url +"\" title=\""
+          + commit.commit.author.name 
+          + ": " + commit.commit.message 
+          + "\">" + new Date(commit.commit.committer.date).toLocaleString() 
+          + "</a>");
+      }
+    }
+    
+    function setModifiedDate() { 
+      if ("{{ filePath }}" !== "" && document.getElementById('last-modified')) {
+        if ("{{ gh_repo }}" !== "" && "{{ current_module.id}}" !== "") {
+          var module_path = "{{ current_module.basepath}}";
+          if ("{{ pageModuleVersion }}" !== "") {
+            module_path += "/" + "{{ pageModuleVersion }}";
+          }
+          /*
+            limit the commits to the linked submodule commit date:
+          */
+          fetch("https://api.github.com/repos/{{ site.repository }}/contents/docs/" + module_path)
           .then((response) => {
             return response.json();
           })
-          .then((commits) => {
-            if (Array.isArray(commits)) {
-              var module_head_time = commits[0]['commit'].committer.date;
-              fetch("https://api.github.com/repos/{{ gh_repo }}/commits?path={{ filePath }}&until=" + module_head_time)
+          .then((contents) => {
+            if (contents.type == 'submodule') {
+              var submodule_commit_sha = contents.sha;
+              fetch("https://api.github.com/repos/{{ gh_repo }}/commits/" + submodule_commit_sha)
                 .then((response) => {
                   return response.json();
                 })
-                .then((commits) => {
-                  if (Array.isArray(commits)) {
-                    var commit = commits[0]['commit'];
-                    var url = commits[0]['html_url'];
-                    if (commit) {
-                      $("#last-modified").append("<span>Viimeksi muutettu <a href=\"" + url +"\" title=\"" 
-                      + commit.author.name 
-                      + ": " + commit.message 
-                      + "\">" + new Date(commit.committer.date).toLocaleString() 
-                      + "</a>");
+                .then((submodule_commit) => {
+                  if (submodule_commit.sha == submodule_commit_sha) {
+                    var included_commit_limit = submodule_commit.commit.committer.date;
+                    fetch("https://api.github.com/repos/{{ gh_repo }}/commits?path={{ filePath }}&until=" + included_commit_limit)
+                      .then((response) => {
+                        return response.json();
+                      })
+                      .then((commits) => {
+                        if (Array.isArray(commits)) {
+                          updateModifiedField(commits[0]);
+                        }
+                      });
                     }
-                  }
-                });
+                  });
+            } else {
+              fetch("https://api.github.com/repos/{{ site.repository }}/commits?path=docs/" + module_path + "/{{ filePath }}")
+                .then((response) => {
+                  return response.json();
+                })
+              .then((commits) => {
+                if (Array.isArray(commits)) {
+                  updateModifiedField(commits[0]);
+                }
+              });
+            }
+          });
+        } else {
+          fetch("https://api.github.com/repos/{{ site.repository }}/commits?path={{ filePath }}")
+            .then((response) => {
+              return response.json();
+            })
+            .then((commits) => {
+              if (Array.isArray(commits)) {
+                updateModifiedField(commits[0]);
               }
             });
+        }
       }
     }
   </script>
