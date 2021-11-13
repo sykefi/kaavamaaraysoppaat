@@ -1,0 +1,12 @@
+{%- if include.toFind -%}
+    {%- for item in include.siblings -%}
+        {%- if item.id == include.toFind -%}1{%- break -%}
+        {%- else -%}
+            {%- if item.subitems -%}
+                {%- capture ret -%}{%- include isPageInHierarchy.html siblings=item.subitems toFind=include.toFind -%}{%- endcapture -%}
+                {%- if ret == "1" -%}1{%- break -%}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}

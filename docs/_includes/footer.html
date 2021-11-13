@@ -1,0 +1,51 @@
+<!-- FOOTER  -->
+<div id="footer_wrap" class="outer">
+  <footer class="inner">
+    {% if site.github.is_project_page %}
+    <p class="copyright">Sivuston ylläpito <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+    {% endif %}
+  </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js" integrity="sha512-8jeQKzUKh/0pqnK24AfqZYxlQ8JdQjl9gGONwGwKbJiEaAPkD3eoIjz3IuX4IrP+dnxkchGUeWdXLazLHin+UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+{%- if page.layout == 'ea-frame' -%}
+<script src="{{ site.url }}{{ page.url }}/js/displayToc.js"></script>
+  <script>
+    $( window ).resize(function() {
+      resizePage();
+      $('#tocIFrame').width('21%').css('min-width','20em').css('height','100em').css('vertical-align: top');;
+      $('#contentIFrame').width('78%').css('height','100em').css('vertical-align: top');
+      $('#resizeFrames').hide();
+    });
+    $( document ).ready(function() {
+      initLoad(this,'toc.html','{{ page.defaultDiagram }}');
+    
+      /* Terrible hack to get the EA diagram to resize to fit after 'enough' time from loading */
+      window.setTimeout(function() {
+        resizePage();
+        $('#tocIFrame').width('21%').css('min-width','20em').css('height','100em').css('vertical-align: top');;
+        $('#contentIFrame').width('78%').css('height','100em').css('vertical-align: top');
+        $('#resizeFrames').hide();
+      }, 500);
+     
+    });
+  </script>
+{%- else -%}
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function(event) {
+    /*anchors.options.base = "{{ page.url }}";*/
+    anchors.add();
+    anchors.add('.clause .id');
+  });
+</script>
+<script>
+  $( document ).ready(function() {
+    setModifiedDate();
+  });
+</script>
+{%- endif -%}
+</body>
+</html>

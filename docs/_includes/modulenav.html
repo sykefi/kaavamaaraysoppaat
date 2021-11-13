@@ -1,0 +1,58 @@
+{%- if include.module -%}
+ 
+  <div class="btn-toolbar nav-heading">
+    <div class="moduletitle">{{ include.module.title }}</div>
+    {%- if pageModuleVersion -%}
+    <div class="btn-group dropleft">
+        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Versio {{ pageModuleVersion }}
+        </button>
+        <div class="dropdown-menu">
+            <span class="dropdown-header">Saatavilla olevat versiot</span>
+            {%- assign my_ver = '/' | append: pageModuleVersion | append: '/' -%}
+            {%- for version in include.module.versions -%}
+            {%- assign other_ver = '/' | append: version.path | append: '/' -%}
+            <a class="dropdown-item" href="{{ site.url }}{{ page.url | replace: my_ver, other_ver }}" title="{{ version.date | date: '%d.%m.%Y' }}">{{ version.id }}:&nbsp;{{ version.title }}</a>
+            {%- endfor -%}
+        </div>
+    </div>
+      {%- assign basepath = include.module.basepath | append: "/" | append: pageModuleVersion -%}
+    {%- else -%}
+      {%- assign basepath = include.module.basepath -%}
+    {%- endif -%}
+  </div>
+  
+  <ul class="nav flex-column">
+    {%- for item in include.module.nav_items -%}
+      {%- capture path %}{% include getNavItemPath.html item=item %}{%- endcapture -%}
+      {%- if item.heading -%}
+      <li class="nav-item header">
+        <span>{{ item.title }}</span>
+      </li>
+      {%- else -%}
+        {%- assign to_match = include.module.basepath | append: '-' | append: item.id -%}
+        {%- if pageId == to_match -%}
+          {%- assign item_class = "active" -%}
+        {%- else -%}
+          {%- assign item_class = "" -%}
+        {%- endif -%}
+      <li class="nav-item {{item_class}}">
+        <a class="nav-link" href="{{ site.url }}/{{ basepath }}/{{ path }}">{{ item.title }}</a>
+      </li>
+      {%- endif -%}
+      </li>
+        {%- for subitem in item.subitems -%}
+        {%- assign to_match = include.module.basepath | append: '-' | append: subitem.id -%}
+        {%- if pageId == to_match -%}
+          {%- assign item_class = "active" -%}
+        {%- else -%}
+          {%- assign item_class = "" -%}
+        {%- endif -%}
+      <li class="nav-item {{item_class}}">
+        {%- capture subpath %}{% include getNavItemPath.html item=subitem %}{%- endcapture -%}
+        <a class="nav-link sublevel" href="{{ site.url }}/{{ basepath}}/{{ path }}/{{ subpath }}">{{ subitem.title }}</a></li>
+      </li>
+        {%- endfor -%}
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

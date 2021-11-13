@@ -1,0 +1,19 @@
+---
+style: "ea-uml"
+---
+{% include header.html %}
+    {% include navbar.html %}
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        {% include pagemeta.html %}
+        {{ content }}
+        <div class="IndexHeader" id="IndexHeader"></div>
+        <noscript>
+          <div class="NoScript">
+            It appears that you may have Javascript disabled.
+          </div>
+        </noscript>
+      </section>
+    </div>
+{% include footer.html %}

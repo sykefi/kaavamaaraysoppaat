@@ -1,0 +1,117 @@
+---
+---
+
+@import url('./style-base.css');
+
+ #header_wrap {
+     display: none;
+ }
+
+ #header_wrap {
+   .print-title-block {
+     display: none;
+   }
+ }
+
+ #main_content_wrap {
+    background-image: url(../img/ym_background_4.svg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.dropdown-item {
+  &.sublevel {
+      margin-left: 1em;
+  }
+ }
+
+#footer_wrap {
+  background: #253746;
+  padding-bottom: 7em;
+  padding-left: 20px;
+  padding-top: 30px;
+
+  .inner {
+    max-width: none;
+    font-size: smaller;
+    background-image: url(../img/ym_logo_footer.svg);
+    background-repeat: no-repeat;
+    min-height: 5.5em;
+
+    p {
+      color: #797979;
+      text-align: right;
+    }
+
+    a {
+     color: rgb(255, 255, 255);
+     text-decoration: none;
+    }
+  }
+}
+
+#markdown-toc {
+  ol > li:before {
+    min-width: 1em;    
+  }
+}
+
+.navbar-brand {
+  display: none;
+}
+
+@media screen and (min-width: 300px) {
+  .navbar-brand {
+    &.short {
+      display:block;
+    }
+    &.long {
+      display:none;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .navbar-brand {
+    &.short {
+      display:block;
+    }
+    &.long {
+      display:none;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-brand {
+    &.short {
+      display:none;
+    }
+    &.long {
+      display:block;
+    }
+  }
+
+  #header_wrap {
+    display: block;
+  }
+
+  #main_content {
+    padding-top: 20px;
+  }
+
+  .sidebar-offcanvas {
+    padding-top:40px;
+  }
+
+  #header_wrap {
+    background-image: url(../img/VN-navigaatio-taustakuvio2.svg);
+    background-color:#274085;
+    background-size: 100% auto;
+    position:relative;
+
+    .inner {
+      padding: 10px 10px 10px 10px;
+    }
+  }
+}

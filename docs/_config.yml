@@ -1,0 +1,10 @@
+theme: jekyll-theme-slate
+url: "https://ilkkarinne.github.io/kaavamaaraysoppaat" # the base hostname & protocol for your site
+home: "https://ilkkarinne.github.io/kaavamaaraysoppaat/"
+repository: ilkkarinne/kaavamaaraysoppaat
+#google_analytics: G-TL17CQFMFK
+plugins:
+- jekyll-sitemap
+- kramdown
+
+

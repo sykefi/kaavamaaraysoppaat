@@ -1,0 +1,75 @@
+---
+---
+@import url('./style-base.css');
+
+#header_wrap {
+   .print-title-block {
+     padding-bottom: 1em;
+     display: block;
+     a {
+      text-decoration: none;
+     }
+     .title {
+      margin-left: 1rem;
+      font-size: 130%;
+      color: white;
+     }
+     p {
+      margin-left: 1rem;
+      margin-bottom: 0px;
+      font-size: smaller;
+      color: rgb(190, 190, 190);
+
+      a {
+        color:rgb(190, 190, 190);
+      }
+     }
+   }
+ }
+
+ #main_content_wrap {
+   .inner {
+     max-width: 68em;
+   }
+
+   &.sidebar-container {
+     .inner {
+       max-width: 64em;
+     }
+   }
+
+   .clause {
+    break-inside: avoid;
+   }
+}
+
+#footer_wrap {
+  background: #253746;
+  padding-bottom: 3em;
+  padding-left: 20px;
+  padding-top: 30px;
+
+  .inner {
+    max-width: 68em;
+    font-size: smaller;
+    background-image: url(../img/ym_logo_footer.svg);
+    background-repeat: no-repeat;
+    min-height: 5.5em;
+
+    p {
+      color: #797979;
+      text-align: right;
+    }
+
+    a {
+     color: rgb(255, 255, 255);
+     text-decoration: none;
+    }
+  }
+}
+
+#markdown-toc {
+  ol > li:before {
+    padding-right: 0.6em;    
+  }
+}

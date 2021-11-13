@@ -1,0 +1,25 @@
+{%- if include.needle -%}
+    {%- for item in include.haystack -%}
+        {%- if item.id == include.needle -%}
+            {%- if item.file -%}
+                {{ item.file }}
+            {%- else -%}
+                {{ item.id | append: '/index.md' }}
+            {%- endif -%}
+            {%- break -%}
+        {%- else -%}
+            {%- if item.subitems -%}
+                {%- capture ret -%}{%- include getFilePath.html haystack=item.subitems needle=include.needle -%}{%- endcapture -%}
+                {%- if ret != "" -%}
+                    {%- if item.path -%}
+                        {{ item.path | append: '/' }}
+                    {%- else -%}
+                        {{ item.id | append: '/' }}
+                    {%- endif -%}
+                    {{ ret }}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}

@@ -1,0 +1,72 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color:rgb(41, 55, 69);">
+  <div class="container-fluid">
+    <a class="navbar-brand short" href="{{ site.home }}">RY-tietomallit</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      {%- for menu in site.data.topnavigation -%}
+        {%- if menu.nav_items -%}
+          {%- assign nav_items = menu.nav_items -%}
+          {%- assign linkclass = "dropdown-item" -%}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-{{menu.id}}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ menu.title }}</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown-{{menu.id}}">
+        {%- else -%}
+          {%- assign nav_items = "" | split: "," -%}
+          {%- assign nav_items = nav_items | push: menu -%}
+          {%- assign linkclass = "nav-link" -%}
+          {%- assign listclass = "nav-item" -%}
+        {%- endif -%}
+        {%- for item in nav_items -%}
+          {%- if item.kind == "module" -%}
+            {%- assign navdata = site.data.modules[item.id] -%}
+            {%- assign default_version = navdata.versions | where_exp: "version", "version.default" | first -%}
+            {%- unless default_version -%}
+              {%- assign default_version = navdata.versions | first -%}
+            {%- endunless -%}   
+          {%- elsif item.kind == "project" -%}
+            {%- assign navdata = site.data.projects[item.id] -%}
+          {%- endif -%}
+          {%- if navdata -%}
+            {%- assign basepath = navdata.basepath -%}
+            {%- assign default_item = navdata.nav_items | where_exp: "item", "item.default" | first -%}
+            {%- unless default_item -%}
+              {%- assign default_item = navdata.nav_items | first -%}
+            {%- endunless -%}
+            {%- capture default_path -%}{%- include getNavItemPath.html item=default_item -%}{%- endcapture -%}
+            {%- if item.kind == "module" -%}
+              {%- if default_version -%}
+                {%- assign path = basepath | append: '/' | append: default_version.path | append: '/' | append: default_path -%}
+              {%- else -%}
+                {%- assign path = basepath | append: '/' | append: default_path -%}
+              {%- endif --%}
+            {%- elsif item.kind == "project" -%}
+              {%- assign path = basepath | append: '/' | append: default_path -%}
+            {%- endif -%}
+            <li class="{{ listclass }}">
+              <a class="{{ linkclass }}" href="{{ site.url }}/{{ path }}">{{ navdata.title }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if menu.nav_items -%}
+            </ul>
+          </li>
+        {%- endif -%}  
+      {%- endfor -%}
+      </ul>
+      <div class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ site.github.repository_url }}"><i class="fab fa-github"></i>&nbsp;GitHub</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://ym.fi/ryhti">Ryhti-hanke</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

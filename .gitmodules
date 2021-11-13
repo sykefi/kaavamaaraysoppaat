@@ -1,0 +1,3 @@
+[submodule "docs/asemakaava/v1.0"]
+	path = docs/asemakaava/v1.0
+	url = https://github.com/ilkkarinne/ktm-asemakaava.git
