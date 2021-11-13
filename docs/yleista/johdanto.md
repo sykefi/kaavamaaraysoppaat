@@ -2,7 +2,7 @@
 layout: "default"
 title: "Kaavamääräysoppaat"
 description: "Tietomallipohjaisten kaavojen kaavamääräysoppaat"
-id: "main"
+id: "johdanto"
 ---
 # Johdanto
 
