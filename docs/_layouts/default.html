@@ -1,18 +1,18 @@
 ---
 style: "default"
 ---
-{% include header.html %}
-    {% include navbar.html %}
+{% include common/header.html %}
+    {% include common/navbar.html %}
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <div class="d-flex inner">
         <div class="modulenav">
-          {%- include modulenav.html module=current_module -%}
+          {%- include common/modulenav.html module=current_module -%}
         </div>
         <section id="main_content">
-          {%- include pagemeta.html -%}
+          {%- include common/pagemeta.html -%}
           {{ content }}
         </section>
       </div>
     </div>
-{% include footer.html %}
+{% include common/footer.html %}

@@ -1,12 +1,12 @@
 ---
 style: "ea-uml"
 ---
-{% include header.html %}
-    {% include navbar.html %}
+{% include common/header.html %}
+    {% include common/navbar.html %}
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        {% include pagemeta.html %}
+        {% include common/pagemeta.html %}
         {{ content }}
         <div class="IndexHeader" id="IndexHeader"></div>
         <noscript>
@@ -16,4 +16,4 @@ style: "ea-uml"
         </noscript>
       </section>
     </div>
-{% include footer.html %}
+{% include common/footer.html %}
