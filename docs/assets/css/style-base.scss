@@ -33,11 +33,13 @@ body {
   &.ea-uml {
     #main_content {
       max-width: none;
+      width: 100%;
       padding: 0px;
     }
     #main_content_wrap {
       .inner {
-      
+        margin: inherit;
+        width: 100%;
         h1, p {
           margin-left: 1rem;
 
@@ -45,9 +47,6 @@ body {
         .IndexBody {
           white-space: nowrap;
         }
-      }
-      .pagemeta {
-        right: 0em;
       }
     }
   }
@@ -145,14 +144,14 @@ b {
         padding-left: 0.5ex;
         padding-right: 0.5ex;
         display: inline;
-          span {
-            vertical-align: middle;
-          }
+        span {  
+          position: relative;
+          top: -0.5ex;
+          vertical-align: middle;
+        }
       }
     }
-
      
-
      font-size: 14px;
      a.owner {
        position: absolute;
@@ -192,15 +191,26 @@ b {
 
      .modulenav {
       background-color:#d7e0eb;
-      min-width: fit-content;
+      /*min-width: fit-content;*/
+      max-width: 23em;
+
+      .navbar {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
 
       .nav-heading {
-        background-color: #495d72;
-        padding: 1em;
+        padding-top: 0.5em;
+        padding-left: 1em;
+        padding-bottom: 1em;
+        width: 100%;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #7097bd;
 
         .moduletitle {
-          color: white;
-          font-size: 120%;
+          color: rgb(43, 63, 107);
+          font-size: 125%;
           padding-right: 0.5em;
         }
   
@@ -210,8 +220,8 @@ b {
           padding-bottom: 0.1rem;
         }
         .btn-light {
-          color: #fdfdfd;
-          background-color: #687b8f;
+          color: #505772;
+          background-color: #c8d6e6;
           border-color: #b4c0cb;
         }
       }
@@ -222,7 +232,7 @@ b {
 
           &.header {
             color: #4f6c85;
-            font-size: 110%;
+            font-size: 124%;
             font-weight: bold;
             font-variant: all-small-caps;
             padding-top: 0.6rem;
@@ -236,12 +246,13 @@ b {
 
             &.sublevel {
               padding-left: 1em;
+              width: auto;
             }
           }
           &.active {
             .nav-link {
               font-weight: bolder;
-              color: #0c2e61;
+              color: #4a5a72;
             }
           }          
         }
