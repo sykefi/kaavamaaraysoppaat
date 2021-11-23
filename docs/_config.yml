@@ -4,6 +4,7 @@ home: "https://ilkkarinne.github.io/kaavamaaraysoppaat/"
 name: "Kaavamääräysoppaat"
 name_short: "Kaavamääräysoppaat"
 repository: ilkkarinne/kaavamaaraysoppaat
+beta: true
 #google_analytics: G-TL17CQFMFK
 plugins:
 - jekyll-sitemap
