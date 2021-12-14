@@ -1,0 +1,13 @@
+<table class="kmo-table kmryhma">
+    {%- if include.caption -%}<caption>{{ include.caption }}</caption>{%- endif -%}
+    <tbody>
+        <tr class="otsikko">
+            <td colspan="2">Kaavamääräysryhmä R{{ include.number }}</td>
+            <td>Arvo</td>
+        </tr>
+        <tr class="nimi">
+            <td>Nimi</td> 
+            <td colspan="2">
+                {{ include.name }}  
+            </td>
+        </tr>
