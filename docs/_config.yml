@@ -1,9 +1,9 @@
 theme: jekyll-theme-slate
-url: "https://ilkkarinne.github.io/kaavamaaraysoppaat" # the base hostname & protocol for your site
-home: "https://ilkkarinne.github.io/kaavamaaraysoppaat/"
+url: "https://sykefi.github.io/kaavamaaraysoppaat" # the base hostname & protocol for your site
+home: "https://sykefi.github.io/kaavamaaraysoppaat/"
 name: "Kaavamääräysoppaat"
 name_short: "Kaavamääräysoppaat"
-repository: ilkkarinne/kaavamaaraysoppaat
+repository: sykefi/kaavamaaraysoppaat
 beta: true
 #google_analytics: G-TL17CQFMFK
 plugins:
