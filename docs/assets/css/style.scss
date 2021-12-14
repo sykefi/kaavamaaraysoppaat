@@ -17,6 +17,13 @@
     background-image: url(../img/ym_background_4.svg);
     background-size: 100% auto;
     background-repeat: no-repeat;
+
+    #main_content {
+      p img {
+        margin-left: 3em;
+        display: block;
+      }
+    }
 }
 
 .dropdown-item {
