@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{%- comment -%}
+  Redirects to the default version and default navigation item of the module.
+{%- endcomment -%}
+{%- include common/assignCurrentModule.html -%}
+{%- if current_module -%}
+    {%- assign default_version = current_module.versions | where_exp: "version", "version.default" | first -%}
+    {%- unless default_version -%}
+        {%- assign default_version = current_module.versions | first -%}
+    {%- endunless -%}
+    {%- assign basepath = current_module.basepath -%}
+    {%- assign default_item = current_module.nav_items | where_exp: "item", "item.default" | first -%}
+    {%- unless default_item -%}
+        {%- assign default_item = current_module.nav_items | first -%}
+    {%- endunless -%}
+    {%- capture default_path -%}{%- include common/getNavItemPath.html item=default_item -%}{%- endcapture -%}   
+    {%- assign path = '/' | append: basepath | append: '/' | append: default_version.path | append: '/' | append: default_path -%}
+   
+{%- endif -%}
+<html>
+  </head>
+    {%- if path != page.url -%}
+      <meta http-equiv="refresh" content="0; url='{{ site.url }}{{ path }}'" />
+    {%- endif -%}
+  </head>
+  <body>
+    {%- if path != page.url -%}
+    <p>Uudelleenohjataan <a href="{{ site.url }}{{ path }}">oletusversioon</a>.</p>
+    {%- else -%}
+    <p>Viallinen uudelleenohjaus, sivun osoite on jo sama kuin oletusversion osoite.</p>
+    {%- endif -%}
+  </body>
+ 
+</html>
