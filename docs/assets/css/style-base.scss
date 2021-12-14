@@ -422,7 +422,7 @@ ol#markdown-toc > li:before {
   h5:before {
     content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) "." counter(h5counter) "\0000a0\0000a0";
     counter-increment: h5counter;
-}
+  }
 
   .clause {
     border-left-width: 5px;
@@ -485,13 +485,19 @@ ol#markdown-toc > li:before {
   }
   
   .definitionref {
+    position: relative;
     padding: 20px;
     margin: 20px 0;
     border: 1px solid #6285e7;
   
+    .btn-group {
+      position: absolute;
+      right: 1ex;
+      top: 1ex;
+    }
+
     h1 {
       font-size: 100%;
-      float:right;
       color: #1a4990;
       margin-top: 0px;
       margin-bottom: 0px;
@@ -606,6 +612,71 @@ ol#markdown-toc > li:before {
           color: rgba(255,255,255,.5);
         }
      }
+   }
+
+  .kmo-table {
+    width: 100%;
+
+    &.kaavakohde {
+      tr.kmr-ref {
+        td:first-child {
+          width: 30%;
+        }
+      }
+    }
+
+    &.kmryhma {
+      tr.nimi {
+        td:first-child {
+          text-align: right;
+        }
+      }
+      
+      tr.kaavamaarays {
+        td:first-child {
+          width: 20%;
+        }
+
+        td:last-child {
+          width: 40%;
+        }
+      }
+    }
+
+    td:last-child {
+      width: 20%;
+    }
+    
+    tr.otsikko {
+      td {
+        font-weight: bold;
+      }
+    }
+    tr.kmr-ref {
+      td:first-child {
+        text-align: right;
+      }
+    }
+    tr.kaavamaarays {
+      td:first-child {
+        text-align: right;
+      }
+      .km-kind {
+        font-weight: bold;
+      }
+    }
+
+    tr.lisatieto {
+      .lt-kind {
+        font-weight: bold;
+      }
+    }
+
+    tr.lisatieto-arvo {
+      td:first-child {
+        text-align: right;
+      }
+    }
    }
   
    .ea {
