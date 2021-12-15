@@ -70,6 +70,77 @@
   display: none;
 }
 
+.kmo-table {
+  width: 100%;
+
+  &.kaavakohde {
+    tr.kmr-ref {
+      td:first-child {
+        width: 30%;
+      }
+    }
+  }
+
+  &.kmryhma {
+    tr.nimi {
+      td:first-child {
+        text-align: right;
+      }
+    }
+    
+    tr.kaavamaarays {
+      td:first-child {
+        width: 20%;
+      }
+
+      td:last-child {
+        width: 40%;
+      }
+    }
+  }
+
+  td:last-child {
+    width: 20%;
+  }
+  
+  tr.otsikko {
+    td {
+      font-weight: bold;
+    }
+  }
+  tr.kmr-ref {
+    td:first-child {
+      text-align: right;
+    }
+  }
+  tr.kaavamaarays {
+    td:first-child {
+      text-align: right;
+    }
+    .km-kind {
+      font-weight: bold;
+    }
+  }
+
+  tr.lisatieto {
+    .lt-kind {
+      font-weight: bold;
+    }
+  }
+
+  tr.lisatieto-arvo {
+    td:first-child {
+      text-align: right;
+    }
+  }
+ }
+
+@media (min-width: 768px) {
+  .navbar-expand-md .vertical-heading {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 300px) {
   .navbar-brand {
     &.short {
