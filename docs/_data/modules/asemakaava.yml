@@ -2,25 +2,21 @@ id: "asemakaava"
 title: "Asemakaava"
 github:
   owner_name: "ilkkarinne"
-  repository_name: "ktm-asemakaava"
+  repository_name: "kmo-asemakaava"
 versions:
-  - id: "v1.0"
-    title: "Asema- ja yleiskaavan tietomallit -projektin lopputulos"
-    path: "v1.0"
+  - id: "dev"
+    title: "Ensimmäinen kehitysversio"
+    path: "dev"
     default: true
-  - id: "v2.0-dev"
-    title: "Seuraava kehitysversio"
-    path: "v2.0-dev"
 basepath: "asemakaava"
 nav_items:
   - id: "johdanto"
     title: "Johdanto"
-    path: "kaavamaaraysopas/"
-    file: "kaavamaaraysopas/index.md"
+    path: ""
     default: true
   - id: "kaavamaarayslajit"
     title: "Kaavamääräyslajit"
-    path: "kaavamaaraysopas/"
+    path: ""
     heading: true
     subitems:
       - id: "kayttotarkoitukset"

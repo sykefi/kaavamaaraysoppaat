@@ -1,6 +1,11 @@
-[submodule "docs/asemakaava/v1.0"]
-	path = docs/asemakaava/v1.0
-	url = https://github.com/ilkkarinne/ktm-asemakaava.git
 [submodule "docs/_includes/common"]
 	path = docs/_includes/common
 	url = https://github.com/ilkkarinne/rytm-jekyll-includes.git
+[submodule "docs/asemakaava/dev"]
+	path = docs/asemakaava/dev
+	url = https://github.com/ilkkarinne/kmo-asemakaava.git
+	branch = develop
+[submodule "docs/yleiskaava/dev"]
+	path = docs/yleiskaava/dev
+	url = https://github.com/ilkkarinne/kmo-yleiskaava.git
+	branch = develop
