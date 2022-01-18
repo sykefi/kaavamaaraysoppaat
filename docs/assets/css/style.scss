@@ -44,18 +44,38 @@
   .inner {
     max-width: none;
     font-size: smaller;
-    background-image: url(../img/ym_logo_footer.svg);
-    background-repeat: no-repeat;
-    min-height: 5.5em;
 
-    p {
-      color: #797979;
-      text-align: right;
-    }
+    .row {
+      .logo {
+        padding-bottom: 5.5em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+      }
 
-    a {
-     color: rgb(255, 255, 255);
-     text-decoration: none;
+      .slot1 {
+        background-image: url(../img/YM_logo_official_fi_sv_en_RGB_1colour_white_L.png);
+      }
+
+      .slot2 {
+        background-image: url(../img/SYKE-logo_lapinakyva.png);
+      }
+
+      .slot3 {
+        background-image: url(../img/ryhti_logo_valkoinen_rgb.png);
+      }
+
+      .copyright {
+        p {
+          color: #797979;
+          text-align: right;
+        }
+    
+        a {
+         color: rgb(255, 255, 255);
+         text-decoration: none;
+        }
+      }
     }
   }
 }
