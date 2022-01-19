@@ -1,8 +1,5 @@
 id: "yleista"
 title: "Yleistä"
-github:
-  owner_name: "ilkkarinne"
-  repository_name: "kaavamaaraysoppaat"
 basepath: "yleista"
 nav_items:
   - id: "johdanto"

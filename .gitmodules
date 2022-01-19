@@ -1,11 +1,11 @@
 [submodule "docs/_includes/common"]
 	path = docs/_includes/common
-	url = https://github.com/ilkkarinne/rytm-jekyll-includes.git
+	url = https://github.com/sykefi/rytm-jekyll-includes.git
 [submodule "docs/asemakaava/dev"]
 	path = docs/asemakaava/dev
-	url = https://github.com/ilkkarinne/kmo-asemakaava.git
+	url = https://github.com/sykefi/kmo-asemakaava.git
 	branch = develop
 [submodule "docs/yleiskaava/dev"]
 	path = docs/yleiskaava/dev
-	url = https://github.com/ilkkarinne/kmo-yleiskaava.git
+	url = https://github.com/sykefi/kmo-yleiskaava.git
 	branch = develop

@@ -1,7 +1,7 @@
 id: "yleiskaava"
 title: "Yleiskaava"
 github:
-  owner_name: "ilkkarinne"
+  owner_name: "sykefi"
   repository_name: "kmo-yleiskaava"
 versions:
   - id: "dev"
