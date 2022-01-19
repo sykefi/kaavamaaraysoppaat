@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{%- assign path = page.redirectTo -%}
+<html>
+  </head>
+    {%- if path and path != page.url -%}
+      <meta http-equiv="refresh" content="0; url='{{ site.url }}/{{ path }}'" />
+    {%- endif -%}
+  </head>
+  <body>
+    {%- if path -%}
+      {%- if path != page.url -%}
+      <p>Siirry <a href="{{ site.url }}/{{ path }}">kohdesivulle</a></p>
+      {%- else -%}
+      <p>Viallinen uudelleenohjaus, osoite on jo <code>{{ site.url }}/{{ path }}</code></p>
+      {%- endif -%}
+    {%- else -%}
+      <p>Viallinen uudelleenohjaus, <code>page.redirectTo</code> puuttuu</p>
+    {%- endif -%}
+  </body>
+ 
+</html>

@@ -1,13 +1,14 @@
 id: "asemakaava"
 title: "Asemakaava"
 github:
-  owner_name: "ilkkarinne"
+  owner_name: "sykefi"
   repository_name: "kmo-asemakaava"
 versions:
   - id: "dev"
     title: "Ensimmäinen kehitysversio"
     path: "dev"
     default: true
+    development: true
 basepath: "asemakaava"
 nav_items:
   - id: "johdanto"

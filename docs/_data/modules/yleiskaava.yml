@@ -1,13 +1,14 @@
 id: "yleiskaava"
 title: "Yleiskaava"
 github:
-  owner_name: "ilkkarinne"
+  owner_name: "sykefi"
   repository_name: "kmo-yleiskaava"
 versions:
   - id: "dev"
     title: "Ensimmäinen kehitysversio"
     path: "dev"
     default: true
+    development: true
 basepath: "yleiskaava"
 nav_items:
   - id: "johdanto"
