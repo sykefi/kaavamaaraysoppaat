@@ -3,6 +3,9 @@ style: "default"
 ---
 {% include common/header.html %}
     {% include common/navbar.html %}
+    {%- if current_module_version.development -%}
+    <div class="container-fluid dev-alert" role="alert">Huom: Katselet kehitysversiota modulista {{ current_module.title }}. Muutokset sisältöön ovat vielä todennäköisiä</div>
+    {%- endif -%}
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <div class="d-flex inner">

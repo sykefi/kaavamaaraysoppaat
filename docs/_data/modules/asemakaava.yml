@@ -8,6 +8,7 @@ versions:
     title: "Ensimmäinen kehitysversio"
     path: "dev"
     default: true
+    development: true
 basepath: "asemakaava"
 nav_items:
   - id: "johdanto"
